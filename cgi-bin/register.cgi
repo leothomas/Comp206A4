@@ -3,13 +3,14 @@ use CGI;
 use strict;
 use warnings;
 
-print "Content-type:text/html\r\n\r\n";
+#print "Content-type:text/html\r\n\r\n";
 #variables assigned values base on user input
-my $name = param('name');
-my $username = param('username');
+my $point = CGI->new;
+my $name = $point->param('name');
+my $username = $point->param('username');
 #removes carriage return from $username
 chomp $username;
-my $password = param('password');
+my $password = $point->param('password');
 my $filename = 'members.csv';
 
 #open members.csv file to check pre-existing users
@@ -32,7 +33,7 @@ while (my $row = <$fh>) {
                 #compare username entered with all usernames
                 #checks if username already exists
                 if($parsedInfo[1] eq $username) {
-                        # print "Content-Type: text/html\n\n";
+                        print "Content-Type: text/html\n\n";
                         print "<html>\n";
 			print "<body\n>";		
 			print "<P>The username you entered already exists</P>\n";
@@ -48,6 +49,7 @@ while (my $row = <$fh>) {
                 last;
         }
 }
+close $fh;
 
 #if username doesn't exist, append to members.csv file
 if($boolean == 0){

@@ -1,15 +1,14 @@
-#!/lthoma13/bin/perl
+#!/zwarne/public_html/tests/perl
 use CGI;
 use strict;
 use warnings;
 
-print 'Content-type:text/html\r\n\r\n';
 #variables assigned values base on user input
-my $name = param('name');
-my $username = param('username');
+my $name = 'Zac';
+my $username = <>;
 #removes carriage return from $username
 chomp $username;
-my $password = param('password');
+my $password = 'qwerty';
 my $filename = 'members.csv';
 
 #open members.csv file to check pre-existing users
@@ -32,15 +31,8 @@ while (my $row = <$fh>) {
                 #compare username entered with all usernames
                 #checks if username already exists
                 if($parsedInfo[1] eq $username) {
-                        # print "Content-Type: text/html\n\n";
-                        print '<html>\n';
-			print '<body\n>';		
-			print '<P>The username you entered already exists</P>\n';
-                        print '<a href="http://cs.mcgill.ca/~lthoma13/becomeMember.html"><center><font color="White">try again fool</font></center></a>\n';
-			print '</body>\n ';
-			print '</html\n>';
+                        print "The username you entered already exists\n";
                         $boolean = 1;
-			exit 0;
                 }
         }
         #exits while loop if username already exists
@@ -58,4 +50,3 @@ if($boolean == 0){
         print $fw "\n$name $username $password";
         close $fw;
 }
-exit 0;

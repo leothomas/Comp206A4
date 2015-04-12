@@ -3,7 +3,7 @@ use CGI;
 use strict;
 use warnings;
 
-print 'Content-type:text/html\r\n\r\n';
+print "Content-type:text/html\r\n\r\n";
 #variables assigned values base on user input
 my $name = param('name');
 my $username = param('username');
@@ -33,12 +33,12 @@ while (my $row = <$fh>) {
                 #checks if username already exists
                 if($parsedInfo[1] eq $username) {
                         # print "Content-Type: text/html\n\n";
-                        print '<html>\n';
-			print '<body\n>';		
-			print '<P>The username you entered already exists</P>\n';
-                        print '<a href="http://cs.mcgill.ca/~lthoma13/becomeMember.html"><center><font color="White">try again fool</font></center></a>\n';
-			print '</body>\n ';
-			print '</html\n>';
+                        print "<html>\n";
+			print "<body\n>";		
+			print "<P>The username you entered already exists</P>\n";
+                        print " <a href="http://cs.mcgill.ca/~lthoma13/becomeMember.html"><center><font color="White">try again fool</font></center></a>\n";
+			print "</body>\n";
+			print "</html\n>";
                         $boolean = 1;
 			exit 0;
                 }

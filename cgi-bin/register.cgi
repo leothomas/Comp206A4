@@ -1,4 +1,4 @@
-#!/lthoma13/bin/perl
+#!/usr/bin/perl
 use CGI;
 use strict;
 use warnings;
@@ -33,11 +33,11 @@ while (my $row = <$fh>) {
                 #compare username entered with all usernames
                 #checks if username already exists
                 if($parsedInfo[1] eq $username) {
-                        print "Content-Type: text/html\n\n";
+                        print "Content-type: text/html\r\n\r\n";
                         print "<html>\n";
 			print "<body\n>";		
 			print "<P>The username you entered already exists</P>\n";
-                        print " <a href="http://cs.mcgill.ca/~lthoma13/becomeMember.html"><center><font color="White">try again fool</font></center></a>\n";
+            print '<a href="http://cs.mcgill.ca/~lthoma13/becomeMember.html"><center><font color="White">try again fool</font></center></a>\n';
 			print "</body>\n";
 			print "</html\n>";
                         $boolean = 1;
@@ -58,6 +58,13 @@ if($boolean == 0){
         open(my $fw, ">>", $filename) or die "Could not open the file $filename: $!";
         #adds basic info to user in members.csv
         print $fw "\n$name $username $password";
+        print "Content-type: text/html\r\n\r\n";
+                        print "<html>\n";
+            print "<body>\n";       
+            print "<P>Congrats bro-you didnt fuck it up</P>\n";
+            print '<a href="http://cs.mcgill.ca/~lthoma13/becomeMember.html"><center><font color="White">try again fool</font></center></a>\n';
+            print "</body>\n";
+            print "</html>\n";
         close $fw;
 }
 exit 0;

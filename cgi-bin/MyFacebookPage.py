@@ -5,6 +5,28 @@ import stat
 #to use stdin, uncomment below
 #from sys import sdtin 
 
+def ListMembers():
+    try:
+	#opens members.csv in read setting
+	read = open("members.csv", "r")
+	#members contains a list of strings, each string is a line of members.csv
+	members = read.readlines()
+	#loops for each line in members.csv
+	for current in range(len(members)):
+	    #each line in members.csv is parsed by spaces and each entry is given an index
+	    for idx, val in enumerate(members[current].split()):
+		#the index 1 is always going to be the username
+		if idx == 1:
+		    #print the user name on the webpage
+		    print val
+    #catches errors, most likely from opening the file
+    except:
+	print "Something fuckewd up"
+    #close the rile reader
+    read.clsoe()
+#run the method
+ListMembers()
+
 def AddFriend():
     try:
 	#the user will be the hidden tag that contains the user that logged in

@@ -133,7 +133,7 @@ if($boolean == 0){
     print "<head><title>Error</title></head>\n";
     print "<body background = \"http://www.878bar.com.ar/img/fotos/09.jpg\">\n";       
     print "<p><b><font color=\"White\" size=20><center> Registration succesful! <br >Welcome to MontrealBarBook </center></font></b></p>\n";
-    print "<a href=\"http://cs.mcgill.ca/~lthoma13/Comp206A4/feedpage.html\"><center><font color=\"White\">To feed page </font></center></a>\n";
+    print "<a href=\"http://cs.mcgill.ca/~lthoma13/Comp206A4/welcome.html\"><center><font color=\"White\">Back to login </font></center></a>\n";
     print "</body>\n";
     print "</html>\n";
     exit 0;

@@ -46,7 +46,11 @@ int main(void){
       printf("<head><title>Successful login!</title></head>");
       printf("<body background=\"http://barraca.ca/wp-content/uploads/2011/12/Barraca-Bar-Plateau-Montreal-05.jpg\">");
       printf("<br><br><p><b><font color=\"White\" size=20><center>Successful login! </center></font></b></p>");
-      printf("<a href=\"http://cs.mcgill.ca/~lthoma13/Comp206A4/feedpage.html\"><center><font color=\"White\">Click here to go to your feed page</font></center></a>");
+      // the following line needs to invoke the python script
+      printf("<form name = \"toFeedPage\" action = \"http://cgi.cs.mcgill.ca/~lthoma13/Comp206A4/cgi-bin/MyFacebookPage.py\" method = \"POST\">");
+      printf("<input type = \"hidden\" name = \"username\" value = \"%s\">", user );
+      printf("<center><input type = \"submit\" value = \"To feed page\"></center>");
+      // printf("<a href=\"http://cs.mcgill.ca/~lthoma13/Comp206A4/feedpage.html\"><center><font color=\"White\">Click here to go to your feed page</font></center></a>");
       printf("</body>");
       printf("</html>");
       return 0;

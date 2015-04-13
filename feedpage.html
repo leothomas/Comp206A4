@@ -1,0 +1,49 @@
+<html>
+<head>
+        <title> Feed </title>
+</head>
+        <body background = "http://barraca.ca/wp-content/uploads/2011/12/Barraca-Bar-Plateau-Montreal-05.jpg">
+        <font color="White"><h1><center> MontrealBarBook</h1></center>
+        </font>
+        <table width="100%" border="0">
+  			<tr>
+      			<td valign = "middle">
+      				<font color= "White"><h1><b>Username: </b></h1></font>
+      			</td>
+      			<td valign = "middle">
+      				<form name= "statusUpdate" action = "feedpage.py" method = "POST" >
+      				<input type = "text" name = "status" placeholder= "What's on your mind?" autocomplete = "off" size = 32>
+      				<input type= "submit" value = "Submit">
+    			</td>
+    			<td >
+    				 <a href="http://cs.mcgill.ca/~lthoma13/Comp206A4/welcome.html"><center><font color="White"><b>Logout</b></font></center></a>
+    			</td>	
+  			</tr>
+  			<tr valign="top">
+    			<td bgcolor= "LightGray" >
+      				<h3><b>Friend:</b></h3>
+      					Friend 1<br>
+      					Friend 2<br>
+      					Friend 3 ...
+    			</td>
+    			<td bgcolor="LightGray" >
+        			<h3><b> Status message:</b></h3>
+        			Message 1 <br>
+        			Message 2 <br>
+        			Message 3 <br>
+    			</td>
+    			<td bgcolor = "LightGray">
+    				<h3><b>Current Members </b></h3>
+    				<font>User 1 <br>
+    				User 2 <br>
+    				User 3 <br>
+    				<form name = "addFriend" action = "feedpage.py" method = "POST">
+    				<h3> <b>Add friend</b></h3>
+    				<input type = "text" name = "friendToAdd" placeholder = "Type in another user" autocomplete ="off">
+    				<input type = "submit" value = "Submit"><br>
+    			</td>
+  			</tr>
+		</table>
+</body>
+
+</html>

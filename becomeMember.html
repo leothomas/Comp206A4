@@ -7,7 +7,7 @@
                         <h1><center> MontrealBarBook</h1></center>
                 </font>
         <p><b><font color="White" size=42><center> Register </center></font></b></p>
-
+       
         <form name="input" action = "http://cgi.cs.mcgill.ca/~lthoma13/Comp206A4/cgi-bin/register.cgi" method="POST">
                 <center><table>
                         <tr>
@@ -20,7 +20,7 @@
                                 <td align = "right">
                                 <font color="White" ><b>Username:</b> </font></td>
                                 <td algin = "left">
-                                <input type = "text" name = "username" placeholder = "Enter a your username" autocomplete = "off"/></td>
+                                <input type = "text" name = "username" placeholder = "Enter your username" autocomplete = "off"/></td>
                         </tr>
                         <tr>
                                 <td align = "right">
@@ -28,10 +28,19 @@
                                 <td algin = "left">
                                 <input type = "password" name = "password" placeholder = "*********" autocomplete = "off"/></td>
                         </tr>
-                </table>
-                <center><b><input type = "submit" value = "Register" ></b></center>
+                        <tr>
+                                <td align = "right">
+                                <font color="White" ><b> Confirm Password:</b> <font></td>
+                                <td algin = "left">
+                                <input type = "password" name = "confpassword" placeholder = "*********" autocomplete = "off"/></td>
+                        </tr>
+                        <tr>
+                                <td colspan = "2" ><center><b><input type = "submit" value = "Register" ></b></center>
+                        </tr>
+        </table>
         </form>
-                <a href="http://cs.mcgill.ca/~lthoma13/Comp206A4/welcome.html"><center><font color="White"> Home</font></center></a>
+        <br>
+                <a href="http://cs.mcgill.ca/~lthoma13/Comp206A4/welcome.html"><center><font color="White">Home</font></center></a>
 
 </body>
 </html>

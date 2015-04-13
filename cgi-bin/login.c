@@ -45,8 +45,8 @@ int main(void){
       //Prints Success message to webpage and gives link to access main content
       printf("<head><title>Successful login!</title></head>");
       printf("<body background=\"http://barraca.ca/wp-content/uploads/2011/12/Barraca-Bar-Plateau-Montreal-05.jpg\">");
-      printf("<br><br><p><b><font color=\"White\" size=20><center>Successful login! <br> Follow the link to get to the main page </center></font></b></p>");
-      printf("<a href=\"http://cs.mcgill.ca/~zdoric\"><center><font color=\"White\">Click here</font></center></a>");
+      printf("<br><br><p><b><font color=\"White\" size=20><center>Successful login! </center></font></b></p>");
+      printf("<a href=\"http://cs.mcgill.ca/~lthoma13/Comp206A4/feedpage.html\"><center><font color=\"White\">Click here to go to your feed page</font></center></a>");
       printf("</body>");
       printf("</html>");
       return 0;

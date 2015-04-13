@@ -9,11 +9,15 @@ my $point = CGI->new;
 my $name = $point->param('name');
 my $username = $point->param('username');
 my $password = $point->param('password');
+my $confpassword = $point->param('confpassword');
 my $filename = 'members.csv';
 
 #to check for no spaces
 my $includesSpace = 0;
-if ($name =~ /\s/ ) {
+my $empty = 0;
+my $passMatch = 0;
+
+if ($name =~ /\s/) {
 	$includesSpace = 1;
 }
 elsif ($username =~ /\s/) {
@@ -23,18 +27,60 @@ elsif ($password =~/\s/) {
 	$includesSpace = 1;
 }
 
+if ($name eq "") {
+    $empty = 1;
+}
+elsif ($username eq "") {
+    $empty = 1;
+}
+elsif ($password eq "") {
+    $empty = 1;
+}
+if ($confpassword eq ""){
+    $empty =1;
+}
+
+if($password ne $confpassword){
+    $passMatch =1;
+}
+
+
+
 # print error if a space is found in input
 if($includesSpace == 1) {
 	print "Content-type: text/html\r\n\r\n";
     print "<html>\n";
     print "<head><title>Error</title></head>\n";
     print "<body background = \"http://www.878bar.com.ar/img/fotos/09.jpg\">\n";       
-    print "<p><b><font color=\"White\" size=20><center> Please avoid using spaces <br>in your registration info </center></font></b></p>\n";
+    print "<p><b><font color=\"White\" size=20><center> Error: please avoid using spaces <br>in your registration info </center></font></b></p>\n";
     print "<a href=\"http://cs.mcgill.ca/~lthoma13/Comp206A4/becomeMember.html\"><center><font color=\"White\">Back to registration page</font></center></a>\n";
     print "</body>\n";
     print "</html>\n";
 	exit 0;
 }
+elsif($empty ==1){
+    print "Content-type: text/html\r\n\r\n";
+    print "<html>\n";
+    print "<head><title>Error</title></head>\n";
+    print "<body background = \"http://www.878bar.com.ar/img/fotos/09.jpg\">\n";       
+    print "<p><b><font color=\"White\" size=20><center> Error: one or more fields was left empty <br></center></font></b></p>\n";
+    print "<a href=\"http://cs.mcgill.ca/~lthoma13/Comp206A4/becomeMember.html\"><center><font color=\"White\">Back to registration page</font></center></a>\n";
+    print "</body>\n";
+    print "</html>\n";
+    exit 0;
+}
+elsif ($passMatch ==1){
+    print "Content-type: text/html\r\n\r\n";
+    print "<html>\n";
+    print "<head><title>Error</title></head>\n";
+    print "<body background = \"http://www.878bar.com.ar/img/fotos/09.jpg\">\n";       
+    print "<p><b><font color=\"White\" size=20><center> Error: entered passwords do not match <br></center></font></b></p>\n";
+    print "<a href=\"http://cs.mcgill.ca/~lthoma13/Comp206A4/becomeMember.html\"><center><font color=\"White\">Back to registration page</font></center></a>\n";
+    print "</body>\n";
+    print "</html>\n";
+    exit 0;
+}
+
 
 #open members.csv file to check pre-existing users
 open (my $fh, "<", $filename)
@@ -86,8 +132,8 @@ if($boolean == 0){
     print "<html>\n";
     print "<head><title>Error</title></head>\n";
     print "<body background = \"http://www.878bar.com.ar/img/fotos/09.jpg\">\n";       
-    print "<p><b><font color=\"White\" size=20><center> Welcome to MontrealBarBook! </center></font></b></p>\n";
-    print "<a href=\"http://cs.mcgill.ca/~lthoma13/Comp206A4/welcome.html\"><center><font color=\"White\">To feed page (change this once we have a feed page)</font></center></a>\n";
+    print "<p><b><font color=\"White\" size=20><center> Registration succesful! <br >Welcome to MontrealBarBook </center></font></b></p>\n";
+    print "<a href=\"http://cs.mcgill.ca/~lthoma13/Comp206A4/feedpage.html\"><center><font color=\"White\">To feed page </font></center></a>\n";
     print "</body>\n";
     print "</html>\n";
     exit 0;

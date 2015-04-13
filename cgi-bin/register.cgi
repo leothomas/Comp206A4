@@ -7,17 +7,31 @@ use warnings;
 #variables assigned values base on user input
 my $point = CGI->new;
 my $name = $point->param('name');
-chomp $name;
 my $username = $point->param('username');
-#removes carriage return from $username
-chomp $username;
 my $password = $point->param('password');
-chomp $password;
 my $filename = 'members.csv';
+
+#to check for no spaces
+my $includesSpace = 0;
+if ($name ~= /\s/ ) {
+	$includesSpace = 1;
+}
+elsif ($username ~= /\s/) {
+	$includesSpace = 1;
+}
+elsif ($password ~= /\s/) {
+	$includesSpace = 1;
+}
+
+#print error if a space is found in input
+if($includesSpace = 1) {
+	#print error screen in html
+	exit 0;
+}
 
 #open members.csv file to check pre-existing users
 open (my $fh, "<", $filename)
-         or die "Can't open $filename: $!";
+       or die "Can't open $filename: $!";
 
 #intialize boolean used to break loop
 my $boolean = 0;
@@ -25,11 +39,11 @@ my $boolean = 0;
 #loops to find existing users
 while (my $row = <$fh>) {
 
-        #splits database info line by line, sparating different people
-        my @dataBase = split("\n",$row);
+       #splits database info line by line, sparating different people
+       my @dataBase = split("\n",$row);
 
-        #for each line we separate each value (name, username, password, etc)
-        foreach my $val (@dataBase) {
+       #for each line we separate each value (name, username, password, etc)
+       foreach my $val (@dataBase) {
                 my @parsedInfo = split(' ',$val);
 
                 #compare username entered with all usernames

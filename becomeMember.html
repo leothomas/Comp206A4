@@ -9,12 +9,28 @@
         <p><b><font color="White" size=42><center> Register </center></font></b></p>
 
         <form name="input" action = "http://cgi.cs.mcgill.ca/~lthoma13/Comp206A4/cgi-bin/register.cgi" method="POST">
-                <font color="White" ><center><b>Name</b> <input type = "text" name = "name" placeholder = "Type your name here" autocomplete = "off"><br>
-                <b>Username:</b> <input type="text" name="username" placeholder="Type your username here" autocomplete="off"><br>
-                <b>Password: </b> <input type="password" name="password" placeholder="********"><br>
-                <b><input type="submit" value="Register"></b></center></font><br>
+                <center><table>
+                        <tr>
+                                <td align = "right">
+                                <font color="White" ><b>Name:</b> </font></td>
+                                <td algin = "left">
+                                <input type = "text" name = "name" placeholder = "Enter your name" autocomplete = "off"/></td>
+                        </tr>
+                        <tr>
+                                <td align = "right">
+                                <font color="White" ><b>Username:</b> </font></td>
+                                <td algin = "left">
+                                <input type = "text" name = "username" placeholder = "Enter a your username" autocomplete = "off"/></td>
+                        </tr>
+                        <tr>
+                                <td align = "right">
+                                <font color="White" ><b>Password:</b> <font></td>
+                                <td algin = "left">
+                                <input type = "password" name = "password" placeholder = "*********" autocomplete = "off"/></td>
+                        </tr>
+                </table>
+                <center><b><input type = "submit" value = "Register" ></b></center>
         </form>
-
                 <a href="http://cs.mcgill.ca/~lthoma13/Comp206A4/welcome.html"><center><font color="White"> Home</font></center></a>
 
 </body>

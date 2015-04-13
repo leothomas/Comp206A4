@@ -2,18 +2,30 @@
 <head>
         <title> Welcome </title>
 </head>
-        <body background = "http://barraca.ca/wp-content/uploads/2011/12/Barraca-Bar-Plateau-Montreal-05.jpg">
+        <body background = "http://barraca.ca/wp-content/uploads/2011/12/Barraca-Bar-Plateau-Montreal-05.jpg" width ="1250" height="830">
                 <font color="White">
                         <h1><center> MontrealBarBook</h1></center>
                 </font>
         <p><b><font color="White" size=42><center> Sign in </center></font></b></p>
 
         <form name="input" action = "http://cgi.cs.mcgill.ca/~lthoma13/Comp206A4/cgi-bin/login.cgi" method="POST">
-                <font color="White" ><center><b>Username:</b> <input type="text" name="username" placeholder="Type your username here" autocomplete = "off"><br>
-                <b>Password: </b> <input type="password" name="password" placeholder="********"><br>
-                <b><input type="submit" value="Login"></b></center></font><br>
+                 <center><table>
+                        <tr>
+                                <td align = "right">
+                                <font color="White" ><b>Username:</b></font> </td>
+                                <td algin = "left">
+                                <input type = "text" name = "username" placeholder = "Type your username here" autocomplete = "off"/></td>
+                        </tr>
+                        <tr>
+                                <td align = "right">
+                                <font color="White" ><b>Password:</b></font> </td>
+                                <td algin = "left">
+                                <input type = "password" name = "password" placeholder = "********" autocomplete = "off"/></td>
+                        </tr>
+                </table>
+                <center><b><input type = "submit" value = "Login" ></b></center>
         </form>
-        <a href="http://cs.mcgill.ca/~lthoma13/Comp206A4/becomeMember.html"><center><font color="White">Still not a member? Fine, click here to become one</font></center></a>
+        <a href="http://cs.mcgill.ca/~lthoma13/Comp206A4/becomeMember.html"><center><font color="White">Still not a member? Click here to become one</font></center></a>
 
         <p><font color="White" size=3><center>MontrealBarBook is a network designed to <br> share and discover your favorite bars in Montreal!
                 <br>Join the biggest community of the kind in Canada <br> and add all of your friends.<br>

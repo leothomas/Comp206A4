@@ -13,19 +13,26 @@ my $filename = 'members.csv';
 
 #to check for no spaces
 my $includesSpace = 0;
-if ($name ~= /\s/ ) {
+if ($name =~ /\s/ ) {
 	$includesSpace = 1;
 }
-elsif ($username ~= /\s/) {
+elsif ($username =~ /\s/) {
 	$includesSpace = 1;
 }
-elsif ($password ~= /\s/) {
+elsif ($password =~/\s/) {
 	$includesSpace = 1;
 }
 
-#print error if a space is found in input
-if($includesSpace = 1) {
-	#print error screen in html
+# print error if a space is found in input
+if($includesSpace == 1) {
+	print "Content-type: text/html\r\n\r\n";
+    print "<html>\n";
+    print "<head><title>Error</title></head>\n";
+    print "<body background = \"http://www.878bar.com.ar/img/fotos/09.jpg\">\n";       
+    print "<p><b><font color=\"White\" size=20><center> Please avoid using spaces <br>in your registration info </center></font></b></p>\n";
+    print "<a href=\"http://cs.mcgill.ca/~lthoma13/Comp206A4/becomeMember.html\"><center><font color=\"White\">Back to registration page</font></center></a>\n";
+    print "</body>\n";
+    print "</html>\n";
 	exit 0;
 }
 
@@ -49,15 +56,16 @@ while (my $row = <$fh>) {
                 #compare username entered with all usernames
                 #checks if username already exists
                 if($parsedInfo[1] eq $username) {
-                        print "Content-type: text/html\r\n\r\n";
-                        print "<html>\n";
-			print "<body\n>";		
-			print "<P>The username you entered already exists</P>\n";
-            print '<a href="http://cs.mcgill.ca/~lthoma13/becomeMember.html"><center><font color="White">try again fool</font></center></a>\n';
-			print "</body>\n";
-			print "</html\n>";
-                        $boolean = 1;
-			exit 0;
+                    print "Content-type: text/html\r\n\r\n";
+                    print "<html>\n";
+                    print "<head><title>Error</title></head>\n";
+                    print "<body background = \"http://www.878bar.com.ar/img/fotos/09.jpg\">\n";       
+                    print "<p><b><font color=\"White\" size=20><center> The username you requested <br>already exists </center></font></b></p>\n";
+                    print "<a href=\"http://cs.mcgill.ca/~lthoma13/Comp206A4/becomeMember.html\"><center><font color=\"White\">Back to registration page</font></center></a>\n";
+                    print "</body>\n";
+                    print "</html>\n";
+                    $boolean = 1;
+        			exit 0;
                 }
         }
         #exits while loop if username already exists
@@ -70,17 +78,19 @@ close $fh;
 #if username doesn't exist, append to members.csv file
 if($boolean == 0){
 
-        #append to file function
-        open(my $fw, ">>", $filename) or die "Could not open the file $filename: $!";
-        #adds basic info to user in members.csv
-        print $fw "\n$name $username $password";
-        print "Content-type: text/html\r\n\r\n";
-                        print "<html>\n";
-            print "<body>\n";       
-            print "<P>Congrats bro-you didnt fuck it up</P>\n";
-            print '<a href="http://cs.mcgill.ca/~lthoma13/becomeMember.html"><center><font color="White">try again fool</font></center></a>\n';
-            print "</body>\n";
-            print "</html>\n";
+    #append to file function
+    open(my $fw, ">>", $filename) or die "Could not open the file $filename: $!";
+    #adds basic info to user in members.csv
+    print $fw "\n$name $username $password";
+    print "Content-type: text/html\r\n\r\n";
+    print "<html>\n";
+    print "<head><title>Error</title></head>\n";
+    print "<body background = \"http://www.878bar.com.ar/img/fotos/09.jpg\">\n";       
+    print "<p><b><font color=\"White\" size=20><center> Welcome to MontrealBarBook! </center></font></b></p>\n";
+    print "<a href=\"http://cs.mcgill.ca/~lthoma13/Comp206A4/welcome.html\"><center><font color=\"White\">To feed page (change this once we have a feed page)</font></center></a>\n";
+    print "</body>\n";
+    print "</html>\n";
+    exit 0;
         close $fw;
 }
 exit 0;

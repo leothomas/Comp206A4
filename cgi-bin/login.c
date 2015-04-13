@@ -18,16 +18,18 @@ int n = atoi(getenv("CONTENT_LENGTH")); */
 
 int main(void){
 	char *data = getenv("QUERY_STRING");
-	char username[25], password[25];
+	char ent_username[25], ent_password[25];
+	sscanf(data, "%s %s", &ent_username, &ent_password);
+	FILE *fp;
+	fp = fopen("members.csv", "r+");
 
-	sscanf(data, "%s %s", &username, &password);
 	printf("%s%c%c\n","Content-Type:text/html;charset=iso-8859-1",13,10);
 	printf("<html>");
 	//printf("<head>");
 	//printf("<title>Test post please ignore</title>");
 	//printf("</head>");
 	printf("<body> <h1><center> MontrealBarBook</h1></center></body>");
-	while ((c=fgets(members.csv))!= EOF)
+	while ()
 	{
 		if()
 	}

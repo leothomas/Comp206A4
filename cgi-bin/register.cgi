@@ -7,10 +7,12 @@ use warnings;
 #variables assigned values base on user input
 my $point = CGI->new;
 my $name = $point->param('name');
+chomp $name;
 my $username = $point->param('username');
 #removes carriage return from $username
 chomp $username;
 my $password = $point->param('password');
+chomp $password;
 my $filename = 'members.csv';
 
 #open members.csv file to check pre-existing users

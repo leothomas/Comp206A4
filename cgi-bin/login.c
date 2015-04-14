@@ -46,6 +46,7 @@ int main(void){
       // the following line needs to invoke the python script
       printf("<form name = \"toFeedPage\" action = \"http://cgi.cs.mcgill.ca/~lthoma13/Comp206A4/cgi-bin/testpython.py\" method = \"POST\">");
       printf("<input type = \"hidden\" name = \"username\" value = \"%s\">", user );
+      // printf("<input type = \"hidden\" name = \"friendToAdd\" value = \" \">");
       printf("<center><input type = \"submit\" value = \"To feed page\"></center>");
       // printf("<a href=\"http://cs.mcgill.ca/~lthoma13/Comp206A4/feedpage.html\"><center><font color=\"White\">Click here to go to your feed page</font></center></a>");
       printf("</body>");

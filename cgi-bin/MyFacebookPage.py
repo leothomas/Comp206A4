@@ -81,3 +81,79 @@ def AddFriend():
 	#print "Something fucked up"
 #runs the function
 AddFriend()
+
+def DisplayMessages(userName):
+    try:
+	#boolean to chekc for the valid user's line of information in members.csv
+	usersInfo = 1
+	friendsList = ""
+	#open members.csv in read mode
+	with open("members.csv","r") as src:
+	    #members is a list with each line from members.csv at an index
+	    members = src.readlines()
+	    #count holds the number the user's info is found at
+	    count = 0
+	    #first for loop iterates through the number of lines in the file
+	    for current in range(len(members)):
+		#This breaks up each line into strings and indexes each one
+		for idx, val in enumerate(members[current].split()):
+		    #if the username matches the given one, return the line
+		    if idx == 1 and val == user:
+			userInfo = 0
+			count = current
+	    src.close()
+	#if valid user information is found
+	if usersInfo == 0:
+	    #breaks up the user's information by spaces and indexes each entry
+	    for index, value in enumerate(members[count].split()):
+		#friends have indexes>2, these friend names are added to friendsList
+		if index > 2:
+		    friendsList=friendsList+value+" "
+	#if no valid user information is found
+	elif usersInfo == 1:
+	    print "username is not in members.csv"
+	#open the topics.csv which contains all the posts, in read 
+	with open("topics.csv", "r") as src:
+	    #messages contains each line of topics.csv in a list
+	    messages = src.readlines()
+	    #counter is used so that only 10 messages are printed
+	    counter = 0
+	    #pointer is used so that messages can include usernames
+	    pointer = 0
+	    #while not at the end of topics.csv file
+	    while pointer<len(messages):
+		#separate each friend in the users friends list
+		for idx,val in enumerate(friendsList.split()):
+		    #if the user who posted is on your friends list print their name and message
+		    if val.strip() == messages[pointer].strip() and counter<10:
+			print messages[pointer]
+			print messages[pointer+1]
+			counter = counter+1
+		pointer=pointer+2
+	    src.close()
+    except:
+	print "fuck"
+DisplayMessages(username)
+
+def WritePost():
+    try:
+	#userName and message are what the user enters into the textbox
+	userName = "zac1"
+	message = "new message text"
+	packet = userName+"\n"+message+"\n"
+	#open the file in read mode 
+	with open("topics.csv", "r") as original:
+	    #copy all the lines into a list
+	    messageFile = original.read()
+	    #add new messages to start of file
+	    updatedMessages = packet + messageFile
+	    original.close()
+	#open file is override write mode
+	with open("topics.csv", "w") as modified:
+	    #rewrite file with new messages
+	    modified.write(updatedMessages)
+	    modified.close()
+    except:
+	print "You fucked up!"
+WritePost()
+

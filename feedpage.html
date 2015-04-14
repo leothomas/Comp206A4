@@ -11,7 +11,7 @@
       				<font color= "White"><h1><b>Username: </b></h1></font>
       			</td>
       			<td valign = "middle">
-      				<form name= "statusUpdate" action = "feedpage.py" method = "POST" >
+      				<form name= "statusUpdate" action = "http://cgi.cs.mcgill.ca/~lthoma13/Comp206A4/cgi-bin/MyFacebookPage.py" method = "POST" >
       				<input type = "text" name = "status" placeholder= "What's on your mind?" autocomplete = "off" size = 32>
       				<input type= "submit" value = "Submit">
     			</td>
@@ -20,12 +20,6 @@
     			</td>	
   			</tr>
   			<tr valign="top">
-    			<td bgcolor= "LightGray" >
-      				<h3><b>Friend:</b></h3>
-      					Friend 1<br>
-      					Friend 2<br>
-      					Friend 3 ...
-    			</td>
     			<td bgcolor="LightGray" >
         			<h3><b> Status message:</b></h3>
         			Message 1 <br>
@@ -34,16 +28,18 @@
     			</td>
     			<td bgcolor = "LightGray">
     				<h3><b>Current Members </b></h3>
-    				<font>User 1 <br>
+    				User 1 <br>
     				User 2 <br>
     				User 3 <br>
-    				<form name = "addFriend" action = "feedpage.py" method = "POST">
+    				<form name = "addFriend" action = "http://cgi.cs.mcgill.ca/~lthoma13/Comp206A4/cgi-bin/MyFacebookPage.py" method = "POST">
+              <!-- add maxelength = "#" after "POST" for length control-->
     				<h3> <b>Add friend</b></h3>
     				<input type = "text" name = "friendToAdd" placeholder = "Type in another user" autocomplete ="off">
     				<input type = "submit" value = "Submit"><br>
     			</td>
   			</tr>
 		</table>
+
 </body>
 
 </html>

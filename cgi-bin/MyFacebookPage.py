@@ -21,9 +21,9 @@ def ListMembers():
 		    print val
     #catches errors, most likely from opening the file
     except:
-	print "Something fuckewd up"
+	print "Something fucked up"
     #close the rile reader
-    read.clsoe()
+    read.close()
 #run the method
 ListMembers()
 

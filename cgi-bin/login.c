@@ -28,9 +28,6 @@ int main(void){
   printf("Content-Type:text/html\n\n");
   printf("<html>");
 
-
-
-
   //Scanning he first line of the file member.csv
   fgets(temp,44,members);
   //Discarding the first string and assigning the two others to existing user/password
@@ -40,14 +37,14 @@ int main(void){
   while(check!=NULL){
   
     //Correct combination found
-    if ((strcmp(user, exuser)|| strcmp(pass,expass)) ==0){
+    if ((strcmp(user, exuser))== 0 &&  (strcmp(pass,expass)) ==0){
 
       //Prints Success message to webpage and gives link to access main content
       printf("<head><title>Successful login!</title></head>");
       printf("<body background=\"http://barraca.ca/wp-content/uploads/2011/12/Barraca-Bar-Plateau-Montreal-05.jpg\">");
       printf("<br><br><p><b><font color=\"White\" size=20><center>Successful login! </center></font></b></p>");
       // the following line needs to invoke the python script
-      printf("<form name = \"toFeedPage\" action = \"http://cgi.cs.mcgill.ca/~lthoma13/Comp206A4/cgi-bin/MyFacebookPage.py\" method = \"POST\">");
+      printf("<form name = \"toFeedPage\" action = \"http://cgi.cs.mcgill.ca/~lthoma13/Comp206A4/cgi-bin/testpython.py\" method = \"POST\">");
       printf("<input type = \"hidden\" name = \"username\" value = \"%s\">", user );
       printf("<center><input type = \"submit\" value = \"To feed page\"></center>");
       // printf("<a href=\"http://cs.mcgill.ca/~lthoma13/Comp206A4/feedpage.html\"><center><font color=\"White\">Click here to go to your feed page</font></center></a>");

@@ -43,22 +43,7 @@ if ($confpassword eq ""){
 if($password ne $confpassword){
     $passMatch =1;
 }
-
-
-
-# print error if a space is found in input
-if($includesSpace == 1) {
-	print "Content-type: text/html\r\n\r\n";
-    print "<html>\n";
-    print "<head><title>Error</title></head>\n";
-    print "<body background = \"http://www.878bar.com.ar/img/fotos/09.jpg\">\n";       
-    print "<p><b><font color=\"White\" size=20><center> Error: please avoid using spaces <br>in your registration info </center></font></b></p>\n";
-    print "<a href=\"http://cs.mcgill.ca/~lthoma13/Comp206A4/becomeMember.html\"><center><font color=\"White\">Back to registration page</font></center></a>\n";
-    print "</body>\n";
-    print "</html>\n";
-	exit 0;
-}
-elsif($empty ==1){
+if($empty ==1){
     print "Content-type: text/html\r\n\r\n";
     print "<html>\n";
     print "<head><title>Error</title></head>\n";
@@ -68,6 +53,20 @@ elsif($empty ==1){
     print "</body>\n";
     print "</html>\n";
     exit 0;
+}
+
+
+# print error if a space is found in input
+elsif($includesSpace == 1) {
+	print "Content-type: text/html\r\n\r\n";
+    print "<html>\n";
+    print "<head><title>Error</title></head>\n";
+    print "<body background = \"http://www.878bar.com.ar/img/fotos/09.jpg\">\n";       
+    print "<p><b><font color=\"White\" size=20><center> Error: please avoid using spaces <br>in your registration info </center></font></b></p>\n";
+    print "<a href=\"http://cs.mcgill.ca/~lthoma13/Comp206A4/becomeMember.html\"><center><font color=\"White\">Back to registration page</font></center></a>\n";
+    print "</body>\n";
+    print "</html>\n";
+	exit 0;
 }
 elsif ($passMatch ==1){
     print "Content-type: text/html\r\n\r\n";

@@ -26,7 +26,7 @@ elsif ($username =~ /\s/) {
 elsif ($password =~/\s/) {
 	$includesSpace = 1;
 }
-
+#check if input is empty
 if ($name eq "") {
     $empty = 1;
 }
@@ -39,10 +39,11 @@ elsif ($password eq "") {
 if ($confpassword eq ""){
     $empty =1;
 }
-
+#check that passwords match
 if($password ne $confpassword){
     $passMatch =1;
 }
+#error screen if input is empty
 if($empty ==1){
     print "Content-type: text/html\r\n\r\n";
     print "<html>\n";
@@ -54,7 +55,6 @@ if($empty ==1){
     print "</html>\n";
     exit 0;
 }
-
 
 # print error if a space is found in input
 elsif($includesSpace == 1) {
@@ -68,6 +68,7 @@ elsif($includesSpace == 1) {
     print "</html>\n";
 	exit 0;
 }
+#print error if passwords down match
 elsif ($passMatch ==1){
     print "Content-type: text/html\r\n\r\n";
     print "<html>\n";
@@ -125,8 +126,9 @@ if($boolean == 0){
 
     #append to file function
     open(my $fw, ">>", $filename) or die "Could not open the file $filename: $!";
-    #adds basic info to user in members.csv
-    print $fw "\n$name $username $password";
+    #adds basic info to user in members.csv including user as her/her own friend so they can see their
+    # messages. 
+    print $fw "\n$name $username $password $username";
     print "Content-type: text/html\r\n\r\n";
     print "<html>\n";
     print "<head><title>Error</title></head>\n";
